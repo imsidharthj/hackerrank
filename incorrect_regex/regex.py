@@ -1,10 +1,11 @@
 import re
 def main():
+    results = []
     T = int(input())
     for _ in range(T):
         S = input().strip()
-        result = valid_regex(S)
-    print(result)
+        results.append(valid_regex(S))
+    print("\n".join(map(str, results)))
 
 def valid_regex(S):
     try:
