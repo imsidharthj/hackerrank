@@ -1,22 +1,14 @@
 def main():
-    n = int(input())
-    if n % 2 == 0:
-        return None
-    design = design_doormat(n)
-    for row in design:
-        print(row)
+  n, m = map(int, input().split())
+  design_doormat(n, m)
 
-def design_doormat(n):
-    m = n * 3
-    welcome_position = m // 2 - 3
-    doormat = []
-    for i in range(n):
-        left_padding = welcome_position - 3 * i
-        right_padding = m - 2 * left_padding - 7
-        row = '-' * left_padding + '.|.' * (2 * i + 1) + '-' * right_padding
-        if i == n // 2:
-            row = '-' * ((m - 7) // 2) + 'WELCOME' + '-' * ((m - 7) // 2)
-        doormat.append(row)
-    return doormat
+def design_doormat(n, m):
+  for i in range(1, n + 1, 2):  # Top half loop (start from 1, end at n, step 2)
+    print((".|." * i).center(m, '-'))
+
+  print('WELCOME'.center(m, '-'))
+
+  for i in range(n - 1, -1, -2):  # Bottom half loop (start from n-1, end at -1, step -2)
+    print((".|." * i).center(m, '-'))
 
 main()
