@@ -1,13 +1,13 @@
+import string
 def print_rangoli(size):
-    width = 4 * size - 3
-    center = ord("a")
-    lines = []
-    for i in range(size):
-        alphabets = '-'.join(chr(center + size - j - 1) for j in range(i + 1))
-        line = alphabets[:-1] + alphabets[::-1]
-        lines.append(line.center(width, '-'))
-    print('\n'.join(lines + lines[:-1][::-1]))
+    n = size
+    width = 4 * n - 3
+    alphabet = list(string.ascii_lowercase)
+    for i in range(1, n+1):
+        print(("-".join(alphabet[n-1:n-i:-1] + alphabet[n-i:n])).center(width, "-"))
+    for i in range(n-1, 0, -1):
+        print(("-".join(alphabet[n-1:n-i:-1] + alphabet[n-i:n])).center(width, "-"))
 
-if __name__=="__main__":
-    size = int(input())
-    print_rangoli(size)
+if __name__ == "__main__":
+    n = int(input())
+    print_rangoli(n)
