@@ -1,0 +1,6 @@
+n1 = int(input())
+set1 = set(map(int, input().split()))
+n2 = int(input())
+set2 = set(map(int, input().split()))
+symmetric_difference_set = set2.symmetric_difference(set1)
+print(len(symmetric_difference_set))
