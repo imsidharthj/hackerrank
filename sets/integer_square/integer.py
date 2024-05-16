@@ -1,0 +1,7 @@
+a = int(input())
+b = int(input())
+c = int(input())
+d = int(input())
+square = pow(a, b)
+square_m = pow(c, d)
+print(square + square_m)
